@@ -7,28 +7,27 @@
 }
 
 .html {
-  background: #ecf3f2;
-  /* Radial Box with Difficulty Label */
-  background: #ecf3f2;
+  background: #ECEAE1;
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: flex-start;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: #ecf3f2;
+  justify-content: center;   /* 垂直置中 */
+  align-items: center;       /* 水平置中 */
+  background: #ECEAE1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Noto Sans TC', sans-serif;
+  background-image: url("../assets/bghomepage.png");
 }
 
 
@@ -39,9 +38,39 @@ body {
 }
 
 h1 {
-  color: #009688;
-  padding: 10px;
+  color: #ffffff;
+  padding-top: 80px;
+  padding-bottom: 75px;
   font-family: 'Pixel';
+}
+
+#LocaleReq1 {
+  font-size: 60px;
+  font-family: 'Pixel';
+  color: white;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+
+
+.radial-box h2 {
+  position: relative;
+  z-index: 10;
+  background: #788DAC;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 12px;
+  font-family: "Pixel";
+  white-space: nowrap;
+  text-align: center;
+
+  /* 額外補充（可選） */
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .div {
@@ -53,61 +82,39 @@ h1 {
 }
 
 .text {
-  color: #404040;
-  height: auto;
-  font-size: 60px;
+  color: #A77653;
+  font-size: 80px;
   font-family: "Pixel";
-  margin-top: 267.5px;
-  margin-bottom: 267.5px;
-  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.1s both;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  display: block;
+  width: 100%;
   animation: scale-in-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.1s both;
 }
 
-.memory-game-hard {
-  max-width: 1650px;
-  height: auto;
-  margin: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
+
+.memory-game-easy {
+  display: grid;
+  grid-template-columns: repeat(4, 150px); /* 每行 4 張卡片 */
+  gap: 10px;
+  margin: 10px auto;
 }
 
 .memory-game-normal {
-  max-width: 1120px;
-  height: auto;
-  margin: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-
+  display: grid;
+  grid-template-columns: repeat(5, 150px); /* 每行 5 張卡片 */
+  gap: 10px;
+  margin: 10px auto;
 }
 
-.memory-game-easy {
-  max-width: 640px;
-  height: auto;
-  margin: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
+.memory-game-hard {
+  display: grid;
+  grid-template-columns: repeat(6, 150px); /* 每行 6 張卡片 */
+  gap: 10px;
+  margin: 10px auto;
 }
+
 
 .memory-card {
   width: calc(150px);
@@ -116,7 +123,7 @@ h1 {
   margin-bottom: 10px;
   margin-top: 0;
   position: relative;
-  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -156,7 +163,7 @@ h1 {
 .front-face {
   max-width: 100%;
   height: auto;
-  padding: 10px;
+ /*  padding: 10px; */
   position: absolute;
   border-radius: 5px;
   background: #fffdfdcf;
@@ -169,15 +176,71 @@ h1 {
   height: auto;
   position: absolute;
   border-radius: 5px;
-  background: #2e97e89d;
+  background: #788DAC;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+.memory-card {
+  width: 150px;
+  height: 150px;
+  margin: 5px 5px 10px 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  transform: rotateY(0deg) scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* 點擊時輕微縮小 */
+.memory-card:active {
+  transform: scale(0.97) rotateY(0deg);
+  transition: transform 0.2s ease;
+}
+
+/* 翻牌狀態 */
+.memory-card.flip {
+  transform: rotateY(180deg) scale(1);
+}
+
+/* 翻牌 + hover 狀態時放大 */
+.memory-card.flip:hover {
+  transform: rotateY(180deg) scale(1.05);
+  z-index: 5;
+}
+
+/* 一般 hover 放大 */
+.memory-card:hover {
+  transform: rotateY(0deg) scale(1.05);
+  z-index: 5;
+}
+
 
 .front-face {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
+
+.ts-button {
+  background-color: #A77653 !important;
+  color: #ECEAE1 !important;
+  font-family: "Pixel";
+  border: none!important;
+  box-shadow: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.ts-button:hover {
+  background-color: #ECEAE1 !important; /* 原本字的顏色 */
+  color: #A77653 !important;           /* 原本背景色變成字的顏色 */
+  border: 2px solid #A77653 !important;           /* 避免反白後太淺，可以補個邊框 */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
 
 @-webkit-keyframes scale-out-center {
   0% {
@@ -233,84 +296,7 @@ h1 {
     transform: scale(1);
     opacity: 1;
   }
-}
 
-/* 🔶 放射背景 for 難度區塊 */
-.radial-box {
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  height: 300px;
-  margin: 2rem auto;
-  border-radius: 16px;
-  overflow: hidden;
-}
+  
 
-.radial-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: conic-gradient(
-    #F7CB82 0deg 20deg,
-    #ECEAE1 20deg 40deg,
-    #F7CB82 40deg 60deg,
-    #ECEAE1 60deg 80deg,
-    #F7CB82 80deg 100deg,
-    #ECEAE1 100deg 120deg,
-    #F7CB82 120deg 140deg,
-    #ECEAE1 140deg 160deg,
-    #F7CB82 160deg 180deg,
-    #ECEAE1 180deg 200deg,
-    #F7CB82 200deg 220deg,
-    #ECEAE1 220deg 240deg,
-    #F7CB82 240deg 260deg,
-    #ECEAE1 260deg 280deg,
-    #F7CB82 280deg 300deg,
-    #ECEAE1 300deg 320deg,
-    #F7CB82 320deg 340deg,
-    #ECEAE1 340deg 360deg
-  );
-  z-index: 0;
-}
-
-.radial-box h2 {
-  position: relative;
-  z-index: 10;
-  background: #788DAC;
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 2rem;
-  border-radius: 12px;
-  font-family: "Pixel";
-}
-
-/* 🔶 卡片樣式微調強化視覺 */
-.memory-card {
-  background-color: #CBD7E3;
-  border: 2px solid #A77653;
-  border-radius: 12px;
-  transition: transform 0.3s;
-}
-.memory-card:hover {
-  transform: scale(1.03);
-}
-
-/* 🔶 語言按鈕美化 */
-.language-selector button {
-  background-color: #A77653;
-  color: white;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-family: "Pixel";
-  margin: 0 8px;
-}
-
-/* 🔶 難度按鈕統一樣式 */
-.difficulty-buttons button {
-  background-color: #A77653;
-  color: white;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-family: "Pixel";
-  margin: 0 8px;
 }

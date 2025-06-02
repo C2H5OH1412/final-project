@@ -15,7 +15,7 @@ const resetEndlook = document.querySelector("#reset_look");
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-let cardNum = 28;
+let cardNum = 10;
 let mathedCard = 0;
 let gamemode = 0;
 
@@ -56,13 +56,15 @@ function disableCards() {
       const hide = document.querySelectorAll('.hide');
       hide.forEach(card => card.classList = 'none');
       if (document.title == "記憶對對碰") {
-        end.innerHTML = "已通關";
+        end.innerHTML = "已通關！";
+        document.body.style.backgroundImage = "url('assets/bgend.png')";
+
       }
       else if (document.title == "Memory Card Game") {
-        end.innerHTML = "Finish";
+        end.innerHTML = "Finish！";
       }
       else if (document.title == "メモリカードゲーム") {
-        end.innerHTML = "ゲームクリア";
+        end.innerHTML = "ゲームクリア！";
       }
       end.classList = "text"
     }, 500);
@@ -102,13 +104,15 @@ function resetCard() {
 }
 
 function difficultyChoose() {
-  if (gamemode === 0) { resetEndlook.classList = "ts-wrap is-center-aligned"; }
-  // 難易度選擇
+  if (gamemode === 0) {
+    resetEndlook.classList = "ts-wrap is-center-aligned";
+  }
+
   const modes = {
     easy: {
       id: 'easy',
       class: 'memory-game-easy',
-      cardNum: 16,
+      cardNum: 8,
       message: {
         '記憶對對碰': '切換為簡單模式。',
         'Memory Card Game': 'Switch to Easy Mode.',
@@ -118,7 +122,7 @@ function difficultyChoose() {
     normal: {
       id: 'normal',
       class: 'memory-game-normal',
-      cardNum: 28,
+      cardNum: 10,
       message: {
         '記憶對對碰': '切換為普通模式。',
         'Memory Card Game': 'Switch to Normal Mode.',
@@ -128,7 +132,7 @@ function difficultyChoose() {
     hard: {
       id: 'hard',
       class: 'memory-game-hard',
-      cardNum: 40,
+      cardNum: 12,
       message: {
         '記憶對對碰': '切換為困難模式。',
         'Memory Card Game': 'Switch to Hard Mode.',
@@ -144,6 +148,10 @@ function difficultyChoose() {
       document.querySelector("#difficulty").classList = mode.class;
       cardNum = mode.cardNum;
       mathedCard = 0;
+
+      //換背景
+      document.body.style.backgroundImage = "url('assets/bggame.png')";
+
       resetCard();
       const title = document.title;
       if (mode.message[title]) {
@@ -161,6 +169,8 @@ function difficultyChoose() {
     }
   }
 }
+
+
 
 function lookCard() {
   // 鎖定遊戲版面
@@ -187,18 +197,24 @@ function resetGame() {
   // 重置遊戲
   if (document.title == "記憶對對碰") {
     alert("重置遊戲。");
-  }
-  else if (document.title == "Memory Card Game") {
+  } else if (document.title == "Memory Card Game") {
     alert("Game reset.");
-  }
-  else if (document.title == "メモリカードゲーム") {
+  } else if (document.title == "メモリカードゲーム") {
     alert("ゲームリセット。");
   }
-  if (mathedCard === cardNum) { end.removeEventListener('click', resetGame) }
+
+  //將背景換回首頁背景圖
+  document.body.style.backgroundImage = "url('assets/bggame.png')";
+
+  if (mathedCard === cardNum) {
+    end.removeEventListener('click', resetGame);
+  }
+
   mathedCard = 0;
   resetCard();
   shuffle();
 }
+
 
 function resetBoard() {
   // 重置遊戲變數
