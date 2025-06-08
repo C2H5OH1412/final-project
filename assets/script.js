@@ -203,9 +203,9 @@ function resetGame() {
     alert("ゲームリセット。");
   }
 
-  //將背景換回首頁背景圖
+  /* //將背景換回首頁背景圖
   document.body.style.backgroundImage = "url('assets/bghomepage.png')";
-
+ */
   if (mathedCard === cardNum) {
     end.removeEventListener('click', resetGame);
   }
