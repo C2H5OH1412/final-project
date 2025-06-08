@@ -6,6 +6,7 @@ const normal = document.getElementById('normal');
 const hard = document.getElementById('hard');
 // 重置
 const reset = document.getElementById('reset');
+
 // 偷看
 const look = document.getElementById('look');
 const end = document.querySelector("#end");
@@ -58,7 +59,6 @@ function disableCards() {
       if (document.title == "記憶對對碰") {
         end.innerHTML = "已通關！";
         document.body.style.backgroundImage = "url('assets/bgend.png')";
-
       }
       else if (document.title == "Memory Card Game") {
         end.innerHTML = "Finish！";
@@ -93,6 +93,7 @@ function resetCard() {
   show.forEach(card => card.classList = 'none');
   const flip = document.querySelectorAll('.memory-card.flip');
   flip.forEach(card => card.classList = 'memory-card');
+  document.body.style.backgroundImage = "url('assets/bggame.png')";
   setTimeout(() => {
     for (let i = 0; i < cardNum; i++) {
       document.querySelector(".none").classList = "show";
@@ -149,7 +150,7 @@ function difficultyChoose() {
       cardNum = mode.cardNum;
       mathedCard = 0;
 
-      //換背景
+      // ✅ 換背景
       document.body.style.backgroundImage = "url('assets/bggame.png')";
 
       resetCard();
@@ -203,9 +204,9 @@ function resetGame() {
     alert("ゲームリセット。");
   }
 
-  /* //將背景換回首頁背景圖
+  // ✅ 將背景換回首頁背景圖
   document.body.style.backgroundImage = "url('assets/bghomepage.png')";
- */
+
   if (mathedCard === cardNum) {
     end.removeEventListener('click', resetGame);
   }
@@ -220,6 +221,7 @@ function resetBoard() {
   // 重置遊戲變數
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
+  
 }
 
 function shuffle() {

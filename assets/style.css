@@ -236,7 +236,7 @@ h1 {
 .ts-button:hover {
   background-color: #ECEAE1 !important; /* 原本字的顏色 */
   color: #A77653 !important;           /* 原本背景色變成字的顏色 */
-  border: 2px solid #A77653 !important;           /* 補個邊框 */
+  border: 2px solid #A77653 !important;           /* 避免反白後太淺，可以補個邊框 */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
